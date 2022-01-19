@@ -1,0 +1,28 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main page</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+<h1>Welcome</h1>
+<h3 class="gotoList">Go to: <a th:href="@{/places/habitat}">Habitat</a>, <a th:href="@{/places/cell}">Cell</a>, <a
+        th:href="@{/places/cage}">Cage</a>, <a th:href="@{/places/aquarium}">Aquarium</a></h3>
+
+<hr>
+
+<div class="addPlaces">
+    <h1>Need to add something?</h1>
+    <div class="addButtons">
+        <button class="addTigerCage" th:onclick="">Add tiger cage</button>
+        <button class="addBirdCell">Add cell for flyable birds</button>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

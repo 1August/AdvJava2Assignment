@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Habitat</title>
+</head>
+<body>
+<h1>Welcome to Cage!</h1>
+
+<hr>
+
+<div class="addAnimalFormWrapper">
+    <form class="addAnimalForm" action="">
+        <div class="animals">
+            <input id="addTiger" th:type="radio" th:value="Tiger" name="animal">
+            <label for="addTiger">Tiger</label>
+
+            <input id="addCrow" th:type="radio" th:value="Crow" name="animal">
+            <label for="addCrow">Crow</label>
+        </div>
+        <input type="number" class="numberOfAnimals" placeholder="Number of animals" th:value="1" th:min="1">
+        <input type="submit">
+        <input type="reset">
+    </form>
+</div>
+
+</body>
+</html>
