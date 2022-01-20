@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,16 +10,23 @@
 </head>
 <body>
 <h1>Welcome</h1>
-<h3 class="gotoList">Go to: <a th:href="@{/places/habitat}">Habitat</a>, <a th:href="@{/places/cell}">Cell</a>, <a
-        th:href="@{/places/cage}">Cage</a>, <a th:href="@{/places/aquarium}">Aquarium</a></h3>
+<h3 class="gotoList">
+    Go to:
+    <a th:href="@{/places/habitat}">Habitat</a>,
+    <a th:href="@{/places/cell}">Cell</a>,
+    <a th:href="@{/places/cage}">Cage</a>,
+    <a th:href="@{/places/aquarium}">Aquarium</a>
+    <span th:if="${isTigerCageOn}">, <a th:href="@{/places/tigerCage}">Tiger Cage</a></span>
+    <span th:if="${isWolfCageOn}">, <a th:href="@{/places/wolfCage}">Wolf Cage</a></span>
+</h3>
 
 <hr>
 
 <div class="addPlaces">
     <h1>Need to add something?</h1>
     <div class="addButtons">
-        <button class="addTigerCage" th:onclick="">Add tiger cage</button>
-        <button class="addBirdCell">Add cell for flyable birds</button>
+        <a th:href="@{/addTigerCage}" th:if="${!isTigerCageOn}"><button>Add tiger cage</button></a>
+        <a th:href="@{/addWolfCage}" th:if="${!isWolfCageOn}"><button>Add wolf cage</button></a>
     </div>
 </div>
 

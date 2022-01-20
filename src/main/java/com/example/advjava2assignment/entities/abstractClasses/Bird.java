@@ -4,10 +4,13 @@ import com.example.advjava2assignment.interfaces.IWalkable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Data
 @NoArgsConstructor
 public abstract class Bird extends Animal implements IWalkable{
     private int size = 1;
+
+    @Override
+    public int getComfortableSpace() {
+        return getSize() * 2;
+    }
 }

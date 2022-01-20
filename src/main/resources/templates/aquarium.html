@@ -1,27 +1,35 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Habitat</title>
+    <title>Aquarium</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
+<a th:href="@{/}">Go home</a>
 <h1>Welcome to Aquarium!</h1>
 
 <hr>
 
-<div class="addAnimalFormWrapper">
-    <form class="addAnimalForm" action="">
-        <div class="animals">
-            <input id="addTiger" th:type="radio" th:value="Tiger" name="animal">
-            <label for="addTiger">Tiger</label>
+<h3>All animals:</h3>
+<p th:text="${animalsInAquarium}"></p>
 
-            <input id="addCrow" th:type="radio" th:value="Crow" name="animal">
-            <label for="addCrow">Crow</label>
-        </div>
-        <input type="number" class="numberOfAnimals" placeholder="Number of animals" th:value="1" th:min="1">
+<hr>
+
+<div class="addAnimalFormWrapper">
+    <form class="addAnimalForm" th:action="@{/places/aquarium/add}" method="post" th:object="${addAnimalRequest}">
+        <input type="text" th:field="*{animalName}" list="aquariumCageList">
+        <datalist id="aquariumCageList">
+            <option value="Pike">Pike</option>
+            <option value="Shark">Shark</option>
+        </datalist>
+
+        <input type="number" th:field="*{animalNumber}" name="number" class="numberOfAnimals" placeholder="Number of animals"
+               th:value="1"
+               th:min="1">
         <input type="submit">
         <input type="reset">
     </form>

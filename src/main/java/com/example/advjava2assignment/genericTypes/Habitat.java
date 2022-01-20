@@ -1,10 +1,8 @@
 package com.example.advjava2assignment.genericTypes;
 
 import com.example.advjava2assignment.entities.abstractClasses.Animal;
-import com.example.advjava2assignment.entities.abstractClasses.Bird;
 import com.example.advjava2assignment.interfaces.IMovable;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +19,10 @@ public class Habitat<T extends Animal> {
 
     public Animal add(T animal) throws Exception {
         if (!(animal instanceof IMovable)) throw new Exception("Not interface of Movable");
-        if (animal.getSize() > areaSize) throw new Exception("Size out of available space.");
+        System.out.println(animal.getComfortableSpace() + " " + areaSize);
+        if (animal.getComfortableSpace() > areaSize) throw new Exception("Size out of available space.");
         animalList.add(animal);
-        areaSize -= animal.getSize();
+        areaSize -= animal.getComfortableSpace();
         return animal;
     }
 }

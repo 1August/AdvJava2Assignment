@@ -1,8 +1,6 @@
 package com.example.advjava2assignment.genericTypes;
 
 import com.example.advjava2assignment.entities.abstractClasses.Animal;
-import com.example.advjava2assignment.entities.abstractClasses.Bird;
-import com.example.advjava2assignment.entities.realClasses.Penguin;
 import com.example.advjava2assignment.interfaces.IFlyable;
 import com.example.advjava2assignment.interfaces.IWalkable;
 import lombok.Data;
@@ -21,13 +19,11 @@ public class Cage<T extends Animal>/* All of them animals, but we need exact tig
     }
 
     public Animal add(T animal) throws Exception {
-        if (animal instanceof IFlyable) throw new Exception("Can't accept animals that can fly");
-        if (!(animal instanceof IWalkable)) throw new Exception("Can't accept animals that can't walk");
+        if (animal instanceof IFlyable) throw new Exception("Can't accept animals that can fly.");
+        if (!(animal instanceof IWalkable)) throw new Exception("Can't accept animals that can't walk.");
         if (animal.getSize() > areaSize) throw new Exception("Size out of available space.");
-////        Penguin is Bird, but it can't fly
-//        if (animal instanceof Bird && !(animal instanceof Penguin)) throw new Exception("Bird can not be placed.");
         animalList.add(animal);
-        areaSize -= animal.getSize();
+        areaSize -= animal.getComfortableSpace();
         return animal;
     }
 }

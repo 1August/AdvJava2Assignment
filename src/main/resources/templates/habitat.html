@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
+<a th:href="@{/}">Go home</a>
 <h1>Welcome to Habitat!</h1>
 
 <hr>
@@ -19,8 +20,21 @@
 <hr>
 
 <div class="addAnimalFormWrapper">
-    <form class="addAnimalForm" th:action="@{/places/habitat/add}" method="post" th:object="${habitatRequest}">
-        <input type="text" th:field="*{animalName}">
+    <form class="addAnimalForm" th:action="@{/places/habitat/add}" method="post" th:object="${addAnimalRequest}">
+        <input type="text" th:field="*{animalName}" list="habitatList">
+        <datalist id="habitatList">
+            <option value="Tiger">Tiger</option>
+            <option value="Crow">Crow</option>
+            <option value="Fox">Fox</option>
+            <option value="Ostrich">Ostrich</option>
+            <option value="Penguin">Penguin</option>
+            <option value="Pike">Pike</option>
+            <option value="Shark">Shark</option>
+            <option value="Sparrow">Sparrow</option>
+            <option value="Turtle">Turtle</option>
+            <option value="Wolf">Wolf</option>
+        </datalist>
+
         <input type="number" th:field="*{animalNumber}" name="number" class="numberOfAnimals" placeholder="Number of animals"
                th:value="1"
                th:min="1">

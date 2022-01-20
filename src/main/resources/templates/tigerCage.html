@@ -5,32 +5,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cell</title>
+    <title>Tiger Cage</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
 <a th:href="@{/}">Go home</a>
-<h1>Welcome to Cell!</h1>
+<h1>Welcome to Tiger Cage!</h1>
 
 <hr>
 
 <h3>All animals:</h3>
-<p th:text="${animalsInCell}"></p>
+<p th:text="${animalsInTigerCage}"></p>
 
 <hr>
 
 <div class="addAnimalFormWrapper">
-    <form class="addAnimalForm" th:action="@{/places/cell/add}" method="post" th:object="${addAnimalRequest}">
-        <input type="text" th:field="*{animalName}" list="cellList">
-        <datalist id="cellList">
-            <option value="Crow">Crow</option>
-            <option value="Ostrich">Ostrich</option>
-            <option value="Sparrow">Sparrow</option>
+    <form class="addAnimalForm" th:action="@{/places/tigerCage/add}" method="post" th:object="${addAnimalRequest}">
+        <input type="text" th:field="*{animalName}" list="tigerCageList">
+        <datalist id="tigerCageList">
+            <option value="Tiger">Tiger</option>
         </datalist>
 
         <input type="number" th:field="*{animalNumber}" name="number" class="numberOfAnimals" placeholder="Number of animals"
-               th:value="1"
-               th:min="1">
+               th:value="1" th:min="1">
         <input type="submit">
         <input type="reset">
     </form>
