@@ -18,8 +18,6 @@
 
 <hr>
 
-<p th:if="*{isError}" style="color: red">Error! Can't add this animal / Size is so big</p>
-
 <div class="addAnimalFormWrapper">
     <form class="addAnimalForm" th:action="@{/places/habitat/add}" method="post" th:object="${habitatRequest}">
         <input type="text" th:field="*{animalName}">
