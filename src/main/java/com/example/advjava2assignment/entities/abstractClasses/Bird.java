@@ -9,5 +9,5 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 public abstract class Bird extends Animal implements IWalkable{
-
+    private int size = 1;
 }

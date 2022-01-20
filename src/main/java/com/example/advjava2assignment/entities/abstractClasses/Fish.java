@@ -9,5 +9,5 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 public abstract class Fish extends Animal implements ISwimable {
-
+    private int size = 2;
 }

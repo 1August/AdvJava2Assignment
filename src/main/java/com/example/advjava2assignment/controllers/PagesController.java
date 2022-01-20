@@ -43,4 +43,10 @@ public class PagesController {
     String aquariumGet(){
         return "aquarium";
     }
+
+
+    @GetMapping("/error")
+    String errorPageGet(){
+        return "errorPage";
+    }
 }
